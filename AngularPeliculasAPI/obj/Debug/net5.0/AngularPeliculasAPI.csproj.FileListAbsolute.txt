@@ -27,3 +27,10 @@ C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\Ang
 C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\obj\Debug\net5.0\ref\AngularPeliculasAPI.dll
 C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\obj\Debug\net5.0\AngularPeliculasAPI.pdb
 C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\obj\Debug\net5.0\AngularPeliculasAPI.genruntimeconfig.cache
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Robinzon Montero\Documents\Proyectos de Angular\AngularPeliculasAPI\AngularPeliculasAPI\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

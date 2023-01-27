@@ -1,4 +1,6 @@
-using AngularPeliculasAPI.Repositorios;
+using AngularPeliculasAPI.Controllers;
+using AngularPeliculasAPI.Filtros;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,8 +29,10 @@ namespace AngularPeliculasAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepositorio, RepositorioEnMemoria>();
-            services.AddControllers();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+            services.AddControllers(options => {
+                options.Filters.Add(typeof(FiltroDeExcepcion));
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AngularPeliculasAPI", Version = "v1" });
@@ -48,6 +52,8 @@ namespace AngularPeliculasAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
