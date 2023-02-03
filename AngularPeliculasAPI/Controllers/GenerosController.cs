@@ -1,10 +1,13 @@
-﻿using AngularPeliculasAPI.Entidades;
+﻿using AngularPeliculasAPI.DTOs;
+using AngularPeliculasAPI.Entidades;
 using AngularPeliculasAPI.Filtros;
-using AngularPeliculasAPI.Repositorios;
+using AngularPeliculasAPI.Utilidades;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,41 +22,62 @@ namespace AngularPeliculasAPI.Controllers
     public class GenerosController: ControllerBase
     {
         private readonly ILogger<GenerosController> logger;
+        private readonly ApplicationDbContext dbContext;
+        private readonly IMapper mapper;
 
-        public GenerosController(ILogger<GenerosController> logger)
+        public GenerosController(ILogger<GenerosController> logger, ApplicationDbContext dbContext, IMapper mapper)
         {
             this.logger = logger;
+            this.dbContext = dbContext;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        public ActionResult<List<Genero>> Get()
+        public async Task<ActionResult<List<GeneroDTO>>> Get([FromQuery] PaginacionDTO paginacionDTO)
         {
-            return new List<Genero>()
-            {
-                new Genero()
-                {
-                    Id = 1,
-                    Nombre = "Comedia"
-                }
-            };
+            var queryable = dbContext.Generos.AsQueryable();
+            await HttpContext.InsertarParametrosEnCabecera(queryable);
+            var generos = await queryable.OrderBy(x => x.Nombre).Paginar(paginacionDTO).ToListAsync();
+            return mapper.Map<List<GeneroDTO>>(generos);
         }
 
         [HttpGet("{Id:int}")]
-        public async Task<ActionResult<Genero>> Get(int Id)
+        public async Task<ActionResult<GeneroDTO>> Get(int Id)
         {
-            throw new NotImplementedException();
+            var genero = await dbContext.Generos.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (genero == null)
+            {
+                return NotFound();
+            }
+
+            return mapper.Map<GeneroDTO>(genero);
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Genero genero)
+        public async Task<ActionResult> Post([FromBody] GeneroCreacionDTO generoCreacionDTO)
         {
-            throw new NotImplementedException();
+            var genero = mapper.Map<Genero>(generoCreacionDTO);
+            dbContext.Add(genero);
+            await dbContext.SaveChangesAsync();
+            return NoContent();
         }
 
-        [HttpPut]
-        public ActionResult Put([FromBody] Genero genero)
+        [HttpPut("{Id:int}")]
+        public async Task<ActionResult> Put(int Id, [FromBody] GeneroCreacionDTO generoCreacionDTO)
         {
-            throw new NotImplementedException();
+            var genero = await dbContext.Generos.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if(genero == null)
+            {
+                return NotFound();
+            }
+
+            // Mapeo del tipo generoCreacionDTO, hacia el tipo genero y guardo esos cambios en la variable genero
+            genero = mapper.Map(generoCreacionDTO, genero);
+
+            await dbContext.SaveChangesAsync();
+            return NoContent();
         }
 
         [HttpDelete]

@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Robinzon Montero\\Documents\\Proyectos de Angular\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj": {}
+    "C:\\Proyectos de cursos\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Robinzon Montero\\Documents\\Proyectos de Angular\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj": {
+    "C:\\Proyectos de cursos\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Robinzon Montero\\Documents\\Proyectos de Angular\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj",
+        "projectUniqueName": "C:\\Proyectos de cursos\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj",
         "projectName": "AngularPeliculasAPI",
-        "projectPath": "C:\\Users\\Robinzon Montero\\Documents\\Proyectos de Angular\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj",
+        "projectPath": "C:\\Proyectos de cursos\\AngularPeliculasAPI\\AngularPeliculasAPI\\AngularPeliculasAPI.csproj",
         "packagesPath": "C:\\Users\\Robinzon Montero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Robinzon Montero\\Documents\\Proyectos de Angular\\AngularPeliculasAPI\\AngularPeliculasAPI\\obj\\",
+        "outputPath": "C:\\Proyectos de cursos\\AngularPeliculasAPI\\AngularPeliculasAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Robinzon Montero\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -37,12 +37,35 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.4.355802, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -55,7 +78,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
